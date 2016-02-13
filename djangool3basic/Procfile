@@ -1,0 +1,2 @@
+selenium_server: java -jar /opt/selenium/selenium-server-standalone-2.48.2.jar
+django_server: python manage.py runserver

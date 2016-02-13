@@ -1,0 +1,76 @@
+mkdir django-minimal-ol3
+cd django-minimal-ol3/
+
+virtualenv --python=python3.4 venv
+source venv/bin/activate
+
+pip install django
+
+# Create project
+django-admin startproject djangool3basic
+cd djangool3basic
+
+# Just to test
+python manage.py runserver
+
+mkdir data && cd data 
+wget http://data.nantes.fr/fileadmin/data/datastore/nm/environnement/24440040400129_NM_NM_00015/LOC_COLONNES_ENTERREES_NM_shp_l93.zip
+unzip LOC_COLONNES_ENTERREES_NM_shp_l93.zip
+cd ..
+
+# Create app
+python manage.py startapp wasteplaces
+
+# Edit settins.py
+subl djangool3basic/settings.py
+
+Change
+
+DATABASES['default'] = {
+    'ENGINE': 'django.contrib.gis.db.backends.spatialite',
+    'NAME': '../data/test.db'
+}
+
+and replace
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+
+with
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'django.contrib.gis',
+    'wasteplaces',
+]
+
+
+SHAPE_ENCODING=latin-1 ogr2ogr -f "SQLite" -dsco SPATIALITE=YES data/test.db data/LOC_COLONNES_ENTERREES_NM.shp -nln loc_colonnes_enterrees_nm -lco SRID=2154 -lco GEOMETRY_NAME=geom -lco ENCODING=UTF-8
+
+# Sans ajout de reférences aux "future"
+python manage.py ogrinspect data/test.db loc_colonnes_enterrees_nm --srid=2154 --mapping > models.py
+
+## TODO
+
+Gérer cas ci-dessous
+
+# Cas plante pour une question de minuscules/majuscules
+# SELECT coord_dimension, srid, geometry_type FROM geometry_columns WHERE f_table_name='loc_colonnes_enterrees_nm' AND f_geometry_column='GEOMETRY'
+# Problème des tables à ne pas mapper (geometry_columns, spatial_ref_sys,...)
+# Référence à des "future" alors qu'on est en Python 3.4...
+# > Abandon pour le moment
+./manage.py inspectdb > models.py
+
+SELECT coord_dimension, srid, %s FROM geometry_columns '
+                           'WHERE f_table_name=%%s AND f_geometry_column=%%s

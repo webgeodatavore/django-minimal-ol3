@@ -1,0 +1,88 @@
+
+================================================
+TITRE DU JEU DE DONNEES
+================================================
+
+Localisation des colonnes enterrées de Nantes Métropole
+
+================================================
+DESCRIPTION
+================================================
+Localisation et caractéristiques des colonnes d'apport volontaire enterrées de Nantes
+Métropole utilisées pour la collecte des déchets.
+Elles sont majoritairement destinées aux flux d'ordures ménagères et TRI'SAC pour certains
+ensembles d'habitat (vertical et collectif en priorité). 
+Ponctuellement des colonnes enterrées destinées au verre et aux déchets secs (recyclables)
+peuvent également être installées.
+
+Thèmes 							: Environnement
+
+================================================
+INFORMATIONS TECHNIQUES
+================================================
+
+Date de dernière mise à jour    : 25/11/2015
+Fréquence de mise à jour 		: trimestrielle
+Couverture Temporelle : Sans objet 
+
+Derniere mise à jour technique	:
+
+	Date : 25/11/2015
+	Nature de la modification : Mise à jour - 25 novembre 2015
+	Description de la modification : Mise à jour trimestrielle
+
+================================================
+ATTRIBUTS
+================================================
+
+
+MATRICULE                   : Matricule/identifiant de la colonne
+TYPE_DECHETS                : Type de déchets. Les valeurs possibles sont : verre_ent (VERRE), ds_ent (DECHETSSECS), om_ent (ORDURES MENAGERES RESIDUELLES) et ts_ent (TRI'SAC)
+QUARTIER                    : Nom du quartier
+NUM_VOIE                    : Numéro de l'adresse
+ADRESSE                     : Adresse postale de l'équipement public
+CLE_VOIE                    : Mot directeur de la voie
+CAPACITE_CUVE               : Capacité volumique de la cuve (en m3)
+CAPACITE_FOSSE              : Capacité volumique de la fosse (en m3)
+PREHENSION                  : Système de préhension de la colonne enterrée (ascenseur ou kinshofer)
+COULEUR                     : Couleur
+FINITION_PLATEFORME         : Finition de la plate-forme (ex : polyester, avec tôle larmée)
+TRAPPE_COMMERCANT           : Indicateur de présence d'une trappe réservée aux commerçants (1) ou pas (0)
+TYP_AVALOIR                 : Type d'avaloir présent sur la colonne
+ISOLATION_PHONIQUE          : Indicateur d'isolation phonique (1) ou pas (0)
+NUMERO_POLE_NANTESMETROPOLE : Numéro du pôle Nantes Métropole de rattachement
+NOM_POLE_NANTESMETROPOLE    : Nom du pôle Nantes Métropole de rattachement
+COD_COM                     : Code de la commune
+COMMUNE                     : Nom de la commune
+LONG_WGS84                  : Longitude exprimée en WGS84
+LAT_WGS84                   : Latitude exprimée en WGS84
+ 
+
+================================================
+CONTACT
+================================================
+
+Pour toute demande d'information ou remarque, 
+merci de passer par le forum du site http://data.nantes.fr
+
+================================================
+INFORMATIONS LEGALES
+================================================
+
+
+Propriétaire : Nantes Métropole
+
+Gestionnaire : Nantes Métropole
+
+Diffuseur	 : Nantes Métropole
+
+Licence      : Open Database License (ODbL)
+
+================================================
+SIGNATURES DES FICHIERS
+================================================
+
+LOC_COLONNES_ENTERREES_NM.dbf (md5) : 3ebbb123cd58e0d747066cc5f0d17403
+LOC_COLONNES_ENTERREES_NM.prj (md5) : f6d4872436dd3f0336bd65be52e7e522
+LOC_COLONNES_ENTERREES_NM.shp (md5) : 2c9d068aa6640118f55241920d479371
+LOC_COLONNES_ENTERREES_NM.shx (md5) : 86c79677c7af0902676989605b908b3f

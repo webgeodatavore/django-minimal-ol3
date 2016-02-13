@@ -1,0 +1,3 @@
+*.pyc
+venv/
+djangool3basic/__pycache__/
